@@ -90,13 +90,10 @@ const ArticleForm = () => {
 			"data": article
 		}
 
-		console.log(body)
-
 		ArticleService.postArticle(body)
 			.then(res => res.json())
 			.then(res => {
 				console.log(res)
-				window.location = "/article"
 			})
 
 	}

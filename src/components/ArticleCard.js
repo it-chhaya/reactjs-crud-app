@@ -5,6 +5,7 @@ import { Col, Row } from 'react-bootstrap'
 import ArticleService from '../services/ArticleService'
 
 const ArticleCard = () => {
+
 	const [articles, setArticles] = useState([
 		{
 			id: 0,
@@ -14,20 +15,12 @@ const ArticleCard = () => {
 			},
 		},
 	])
-	const [isLoading, setIsLoading] = useState(false)
-
-	const viewDetailByID = (id) => {
-		console.log(id);
-	}
 
 	useEffect(() => {
-
-		console.log('effected')
 		ArticleService.fetchArticles()
 			.then((res) => res.json())
 			.then((res) => {
 				setArticles(res.data)
-				setIsLoading(true)
 			})
 	}, [])
 
@@ -38,25 +31,17 @@ const ArticleCard = () => {
 
 	return (
 		<Row className="g-3">
-			{ 
-
-			!isLoading ? <h1>loading</h1> :
-
-			articles.map(article => (
+			{articles.map((article) => (
 				<Col md={4} key={article.id}>
 					<div className="card shadow-sm">
 						<img src={thumbnail} alt="thumbnail" />
 
 						<div className="card-body">
-							<p className={styles.articleTitle}>
-								{article.attributes.title}
-							</p>
+							<p className={styles.articleTitle}>{article.attributes.title}</p>
 							<div className="d-flex justify-content-between align-items-center">
 								<div className="btn-group">
 									<button
-										data-id={article.id}
 										type="button"
-										// onClick={() => viewDetailByID(article.id)}
 										className="btn btn-sm btn-outline-secondary">
 										View
 									</button>

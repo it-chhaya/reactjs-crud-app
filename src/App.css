@@ -1,3 +1,28 @@
+.linkAddNew {
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.linkAddNew:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+.left-link {
+  display: flex;
+}
+
+.right-link {
+  display: flex;
+}
+
+.nav-link {
+  color: white;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +60,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#welcomeHeading {
+  color: #fa0000;
 }
